@@ -5,8 +5,11 @@ from sklearn.model_selection import train_test_split
 import torch
 import argparse
 import torch
-from torch import optim, nn
 import torch.nn.functional as F
+import numpy as np
+import yaml
+import os
+from torch import optim, nn
 from transformers import (
 	BertModel,
 	BertTokenizer,
@@ -19,9 +22,7 @@ from collections import defaultdict
 from CustomDataLoader import CustomDataLoader
 from model import SentimentClassifier
 from torch.utils.data import Dataset, DataLoader
-import numpy as np
-from tqdm import tqdm
-
+from tqdm import tqdm 
 
 def create_data_loader(df, tokenizer, max_len, bs):
 	ds = CustomDataLoader(
@@ -106,32 +107,17 @@ def get_predictions(model, tokenizer, text, max_len):
 
 
 if __name__ == "__main__":
-	parser = argparse.ArgumentParser()
-	parser.add_argument(
-		"--csv_path",
-		help="path to the csv file containing the dataframe with the text content and the sentiment score",
-		required=True,
-	)
-	parser.add_argument(
-		"--num_tokens",
-		help="the maximum number of tokens in a single training example. Please read the README.md for this",
-		default=160,
-	)
-	parser.add_argument("--bs", help="batch_size", default=16)
-	parser.add_argument("--epochs", help="batch_size", default=10)
-	parser.add_argument("--num_classes", help="batch_size", default=2)
-	parser.add_argument("--lr", help="batch_size", default=0.001)
-	args = parser.parse_args()
-
-	BATCH_SIZE = args.bs
+	config = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.yml')))
 	PRE_TRAINED_MODEL_NAME = "distilroberta-base"
 	RANDOM_SEED = 1000
-	EPOCHS = args.epochs
-	NUM_CLASSES = args.num_classes
-	MAX_LEN = args.num_tokens
-	lr = args.lr
 
-	df = pd.read_csv(args.csv_path)
+	BATCH_SIZE = config['batch_size']
+	EPOCHS = config['num_epochs']
+	NUM_CLASSES = config['num_classes']
+	MAX_LEN = config['num_tokens']
+	lr = config['lr']
+
+	df = pd.read_csv(config['csv_path'])
 	df_train, df_test = train_test_split(df, test_size=0.1, random_state=RANDOM_SEED)
 	df_val, df_test = train_test_split(df_test, test_size=0.5, random_state=RANDOM_SEED)
 
@@ -173,7 +159,7 @@ if __name__ == "__main__":
 		history["val_loss"].append(val_loss)
 
 		if val_acc > best_accuracy:
-			torch.save(model.state_dict(), "best_model_state.bin")
+			torch.save(model, "best_model_state.bin")
 			best_accuracy = val_acc
 
 	sample_text = "I really hate this movie"
