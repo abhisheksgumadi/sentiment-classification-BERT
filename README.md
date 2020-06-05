@@ -7,6 +7,8 @@ This repository show how to fine tune a BERT like model from HuggingFace for Sen
 
 ## INPUT DATA
 
+For the impatient :smile:, sample data is in a file named `sample_data.csv`. You can note down the format in this file and straight skip to the **USAGE** section below on how to run the code. 
+
 It is very easy to create an input dataset for training. All you need is Pandas DataFrame with two column viz. **"text"** and **"score"**. Once you create a Pandas Dataframe in this format where the text column contains the raw text and the **"score"** columns contains the sentiment score of the text, just save it as a csv file and mention the path of the file in the `config.yml` file as mentioned below. Note that the scores are ordinal numbers like `0`, `1` and so on starting with `0`. You can internally maintain a correspondance within your code on what classes `0`, `1` means and so on.
 
 ## CONFIG FILE
