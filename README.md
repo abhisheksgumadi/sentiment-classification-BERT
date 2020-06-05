@@ -53,5 +53,3 @@ src/train.py
 that automatically picks up the configuration inside the `src/config.yml` file and starts training based on the provided configuration parameters.
 
 Have fun! and play around with the code to understand how to train a text classification model by fine tuning BERT using HuggingFace :blush:. Change the codebase hovewer you want, experiment with it and most importantly learn something new today :smile:
-
-For any questions, raise an issue :smirk: or email me at `abhisheksgumadi@gmail.com`
