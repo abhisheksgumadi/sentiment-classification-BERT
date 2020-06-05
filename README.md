@@ -3,7 +3,7 @@
 
 This repository show how to fine tune a BERT like model from HuggingFace for Sentiment classification. The model we consider if a RoBERTa model from HuggingFace. The code can be modified easily to support any other BERT kind of a model for fine tuning. 
 
-## NOTE: The objective of this repository is **NOT** to provide you with a state of the art sentiment classification model :wink:. Instead the goal is to show you how to train one in PyTorch using HuggingFace library :relaxed:
+## NOTE: The objective of this repository is **NOT** to provide you with a state of the art sentiment classification model :wink:. This is **NOT** production level code. Instead the goal is to provide you a tutorial on how to train a model in PyTorch using HuggingFace library :relaxed:
 
 ## INPUT DATA
 
