@@ -1,4 +1,5 @@
-# sentiment-classification-BERT
+# sentiment-classification-BERT.  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository show how to fine tune a BERT like model from HuggingFace for Sentiment classification. The model we consider if a RoBERTa model from HuggingFace. The code can be modified easily to support any other BERT kind of a model for fine tuning. 
 
