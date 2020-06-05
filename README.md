@@ -3,13 +3,6 @@
 
 This repository show how to fine tune a BERT like model from HuggingFace for Sentiment classification. The model we consider if a RoBERTa model from HuggingFace. The code can be modified easily to support any other BERT kind of a model for fine tuning. 
 
-## INSTALLATION
-
-```bash
-git clone https://github.com/abhisheksgumadi/sentiment-classification-BERT.git
-cd sentiment-classification-BERT
-```
-
 ## DEPENDENCIES:
 * torch == 1.5.0
 * pandas == 1.0.4
@@ -44,10 +37,21 @@ To run the code, you will first need to edit a config file for the following par
 * `lr`: The learning rate for training
 * `csv_path`: The path to the csv file with the input structure as defined above
 
-## USAGE
+## INSTALLATION & USAGE
 
-To start training, run the `src/train.py` file that automatically picks up the configuration inside the `src/config.yml` file. 
+Clone the repo 
 
-Have fun! and play around with the code to understand how to train a text classification model by fine tuning BERT using HuggingFace :blush:
+```bash
+git clone https://github.com/abhisheksgumadi/sentiment-classification-BERT.git
+cd sentiment-classification-BERT
+```
+Once you are inside the main directory, run
+```python
+src/train.py
+``` 
+
+that automatically picks up the configuration inside the `src/config.yml` file and starts training based on the provided configuration parameters.
+
+Have fun! and play around with the code to understand how to train a text classification model by fine tuning BERT using HuggingFace :blush:. Change the codebase hovewer you want, experiment with it and most importantly learn something new today :smile:
 
 For any questions, raise an issue :smirk: or email me at `abhisheksgumadi@gmail.com`
