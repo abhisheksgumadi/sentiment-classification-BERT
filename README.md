@@ -1,4 +1,5 @@
-# sentiment-classification-BERT.  
+# Fine Tuning BERT for Sentiment Analysis
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository shows how to fine tune a BERT like model from HuggingFace for Sentiment classification. The model we consider if a RoBERTa model from HuggingFace. The code can be modified easily to support any other BERT kind of a model for fine tuning. I have used multiple references around the internet to come up with this single piece of code as a tutorial for anyone familiarizing themselves with HuggingFace and PyTorch. I also recommend reading the original blog that helped me compile the code from [here](https://www.curiousily.com/posts/sentiment-analysis-with-bert-and-hugging-face-using-pytorch-and-python/)
